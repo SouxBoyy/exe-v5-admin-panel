@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejoignez le Serveur Discord</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-image: url('https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/5X/f/3/d/8/f3d8d534e241633b915c441dc4c877f6bc420832.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 24px;
+            color: #ff5722;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #4caf50;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 20px;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+        a.locked {
+            pointer-events: none;
+            background-color: grey;
+        }
+        .visitor-counter {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: white;
+        }
+        .visitor-counter img {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Compteur de visiteurs bloqué à 1M -->
+    <div class="visitor-counter">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Icône de visiteur">
+        <span id="visitorCount">1M</span> Visiteurs
+    </div>
+
+    <img src="https://cdn.discordapp.com/attachments/1232698611582632039/1300940369319694366/40d382e5be264b106bf560950bb6516bf1745099.jpeg" alt="Image de EXE V5" />
+    <h1>Tu veux EXE V5 ?</h1>
+    <h2>Tu veux EXE V5 Admin Panel ?</h2>
+    <a href="https://discord.gg/N7uX5u6r" target="_blank" id="discord" onclick="markClicked('discord')">Rejoins ce serveur Discord</a>
+    <a href="https://www.youtube.com/@SouxBoyy" target="_blank" id="youtube" onclick="markClicked('youtube')">Follow Me YouTube</a>
+    <a href="https://www.youtube.com/watch?v=LANt_73-JDs" target="_blank" id="instructions" onclick="markClicked('instructions')">Instructions</a>
+
+    <!-- Lien final caché initialement -->
+    <a href="https://mega.nz/file/xoBjiYbb#HVvxaeZLeqLktQHnEDSQvqKeBNgmCHJK-wgbhTOOQaY" target="_blank" id="finalLink" class="locked">Lien Final : Télécharger EXE V5</a>
+
+    <script>
+        // Code pour déverrouiller le lien final
+        let linkClicks = {
+            discord: false,
+            youtube: false,
+            instructions: false
+        };
+
+        function markClicked(linkId) {
+            linkClicks[linkId] = true;
+
+            if (linkClicks.discord && linkClicks.youtube && linkClicks.instructions) {
+                const finalLink = document.getElementById("finalLink");
+                finalLink.classList.remove("locked");
+                finalLink.style.backgroundColor = "#4caf50";
+                finalLink.style.cursor = "pointer";
+            }
+        }
+    </script>
+</body>
+</html>
