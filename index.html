@@ -21,14 +21,14 @@
         h1 {
             font-size: 48px;
             font-weight: bold;
-            color: #ffeb3b;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            color: #ffeb3b; /* Jaune vif */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Ombre pour effet de relief */
             margin-bottom: 10px;
         }
         h2 {
             font-size: 24px;
-            color: #ff5722;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            color: #ff5722; /* Orange vif */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6); /* Ombre pour effet de relief */
             margin-bottom: 20px;
         }
         a {
@@ -68,10 +68,10 @@
     </style>
 </head>
 <body>
-    <!-- Compteur de visiteurs bloqué à 1M -->
+    <!-- Compteur de visiteurs -->
     <div class="visitor-counter">
         <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Icône de visiteur">
-        <span id="visitorCount">1M</span> Visiteurs
+        <span id="visitorCount">0</span> Visiteurs
     </div>
 
     <img src="https://cdn.discordapp.com/attachments/1232698611582632039/1300940369319694366/40d382e5be264b106bf560950bb6516bf1745099.jpeg" alt="Image de EXE V5" />
@@ -85,7 +85,18 @@
     <a href="https://mega.nz/file/xoBjiYbb#HVvxaeZLeqLktQHnEDSQvqKeBNgmCHJK-wgbhTOOQaY" target="_blank" id="finalLink" class="locked">Lien Final : Télécharger EXE V5</a>
 
     <script>
-        // Code pour déverrouiller le lien final
+        // Initialisation du compteur de visiteurs dans le localStorage
+        let visitorCount = localStorage.getItem('visitorCount');
+        if (!visitorCount) {
+            visitorCount = 0;
+        }
+        visitorCount++;
+        localStorage.setItem('visitorCount', visitorCount);
+
+        // Affiche le compteur dans l'élément HTML
+        document.getElementById('visitorCount').textContent = visitorCount;
+
+        // Suivi des clics pour déverrouiller le lien final
         let linkClicks = {
             discord: false,
             youtube: false,
